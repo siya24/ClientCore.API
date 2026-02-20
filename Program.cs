@@ -17,14 +17,19 @@ builder.Services.AddAutoMapper(cfg =>
 {
     cfg.CreateMap<CreateClientDTO, Client>();
     cfg.CreateMap<Client, GetClientDTO>();
+
+    cfg.CreateMap<CreateContactDTO, Contact>();
+    cfg.CreateMap<Contact, GetContactDTO>();
 });
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IClientService, ClientService>();
+builder.Services.AddScoped<IContactService, ContactService>();
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -38,6 +43,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
 await app.MigrateDbAsyncy();
 
 app.Run();
