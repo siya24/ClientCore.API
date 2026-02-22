@@ -1,7 +1,4 @@
-﻿using ClientCore.Business.Services;
-using Microsoft.AspNetCore.Mvc;
-
-namespace ClientCore.API.Controllers
+﻿namespace ClientCore.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
